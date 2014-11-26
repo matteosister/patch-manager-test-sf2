@@ -36,9 +36,12 @@ class BooksController extends FOSRestController implements ClassResourceInterfac
     /**
      * @ParamConverter(class="Cypress\TestBundle\Entity\Book", name="book")
      * @param Book $book
+     * @return \Cypress\TestBundle\Entity\Book
      */
     public function patchAction(Book $book)
     {
         $this->get('pm')->handle($book);
+        $this->get('doctrine.orm.entity_manager')->flush();
+        return $book;
     }
 }

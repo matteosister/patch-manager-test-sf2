@@ -10,3 +10,6 @@ Cypress\TestBundle\Entity\Book:
         author:
             expose: true
             groups: [ books ]
+        finiteState:
+            expose: true
+            groups: [ books, authors ]

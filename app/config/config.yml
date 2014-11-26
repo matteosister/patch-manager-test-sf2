@@ -94,11 +94,19 @@ jms_serializer:
 patch_manager:
     alias: pm
     dispatch_events: true
-    strict_mode: false
+    strict_mode: true
     handlers:
         data:
             doctrine: true
-            entity_manager: ss
+            entity_manager: default
             magic_call: false
         state_machine: ~
 
+finite_finite:
+    book:
+        class: Cypress\TestBundle\Entity\Book
+        states:
+            in_stock: { type: initial }
+            sold:     { type: normal }
+        transitions:
+            book.sell: { from: [in_stock], to: sold }

@@ -30,6 +30,7 @@ class AppKernel extends Kernel
         $bundles[] = new \Hautelook\AliceBundle\HautelookAliceBundle();
         $bundles[] = new \FOS\RestBundle\FOSRestBundle();
         $bundles[] = new \JMS\SerializerBundle\JMSSerializerBundle();
+        $bundles[] = new \Finite\Bundle\FiniteBundle\FiniteFiniteBundle();
 
         return $bundles;
     }

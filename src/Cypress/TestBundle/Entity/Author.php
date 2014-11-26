@@ -52,4 +52,12 @@ class Author
     {
         return $this->firstName . ' ' . $this->lastName;
     }
+
+    /**
+     * @param string $firstName
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+    }
 }
