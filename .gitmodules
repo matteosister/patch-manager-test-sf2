@@ -1,0 +1,3 @@
+[submodule "src/patch-manager"]
+	path = src/patch-manager
+	url = git@github.com:matteosister/patch-manager.git

@@ -1,0 +1,20 @@
+Cypress\TestBundle\Entity\Author:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            groups: [ authors, books ]
+        firstName:
+            expose: true
+            groups: [ authors, books ]
+        lastName:
+            expose: true
+            groups: [ authors, books ]
+        books:
+            expose: true
+            groups: [ authors ]
+
+    virtual_properties:
+        getFullName:
+            expose: true
+            groups: [ authors, books ]

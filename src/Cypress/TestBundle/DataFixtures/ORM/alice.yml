@@ -1,0 +1,9 @@
+Cypress\TestBundle\Entity\Author:
+    author{1..10}:
+        firstName: <firstName()>
+        lastName: <lastName()>
+
+Cypress\TestBundle\Entity\Book:
+    book{1..50}:
+        title: <sentence(<?php rand(1, 4) ?>)>
+        author: @author*

@@ -1,0 +1,11 @@
+books:
+    resource: "@CypressTestBundle/Controller/BooksController.php"
+    type:     rest
+    prefix:   /api
+    defaults: {_format: json}
+
+authors:
+    resource: "@CypressTestBundle/Controller/AuthorsController.php"
+    type:     rest
+    prefix:   /api
+    defaults: {_format: json}

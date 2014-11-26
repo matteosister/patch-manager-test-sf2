@@ -1,0 +1,12 @@
+Cypress\TestBundle\Entity\Book:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            groups: [ books, authors ]
+        title:
+            expose: true
+            groups: [ books, authors ]
+        author:
+            expose: true
+            groups: [ books ]
