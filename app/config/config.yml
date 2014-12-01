@@ -97,9 +97,9 @@ patch_manager:
     strict_mode: true
     handlers:
         data:
+            magic_call: false
             doctrine: true
             entity_manager: default
-            magic_call: false
         state_machine: ~
 
 finite_finite:
@@ -109,4 +109,5 @@ finite_finite:
             in_stock: { type: initial }
             sold:     { type: normal }
         transitions:
-            book.sell: { from: [in_stock], to: sold }
+            book.sell:    { from: [in_stock], to: sold }
+            book.restock: { from: [sold, in_stock], to: in_stock }

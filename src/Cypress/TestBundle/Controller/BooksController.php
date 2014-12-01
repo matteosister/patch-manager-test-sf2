@@ -6,11 +6,11 @@ namespace Cypress\TestBundle\Controller;
 use Cypress\TestBundle\Entity\Book;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Routing\ClassResourceInterface;
-use FOS\RestBundle\Controller\Annotations\View;
+use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
- * @View(serializerGroups={"books"})
+ * @Rest\View(serializerGroups={"books"})
  */
 class BooksController extends FOSRestController implements ClassResourceInterface
 {
@@ -40,8 +40,18 @@ class BooksController extends FOSRestController implements ClassResourceInterfac
      */
     public function patchAction(Book $book)
     {
-        $this->get('pm')->handle($book);
+        $this->get('patch_manager')->handle($book);
         $this->get('doctrine.orm.entity_manager')->flush();
         return $book;
+    }
+
+    /**
+     * @Rest\Route("/books")
+     */
+    public function patchBooksAction()
+    {
+        $books = $this->get('doctrine.orm.entity_manager')->getRepository(Book::class)->findAll();
+        $this->get('patch_manager')->handle($books);
+        $this->get('doctrine.orm.entity_manager')->flush();
     }
 }
