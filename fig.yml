@@ -1,0 +1,13 @@
+web:
+  build: .
+  command: php -v && php /code/app/console server:run
+  ports:
+    - "8000:8000"
+  links:
+    - db
+  volumes:
+    - .:/code
+db:
+  image: orchardup/mysql
+  environment:
+    MYSQL_DATABASE: wordpress
