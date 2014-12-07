@@ -13,4 +13,11 @@
         </service>
     </services>
     -->
+
+    <services>
+        <service id="cypress.test_bundle.patch_manager.author_first_name"
+                 class="Cypress\TestBundle\PatchManager\AuthorFirstName">
+            <tag name="patch_manager.handler" />
+        </service>
+    </services>
 </container>
